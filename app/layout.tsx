@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/ui/navbar";
+import Banner from "./_components/banner";
 
 const ebGaramondHeading = EB_Garamond({subsets:['latin'],variable:'--font-heading'});
 
@@ -32,7 +34,13 @@ export default function RootLayout({
       lang="en"
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", notoSans.variable, ebGaramondHeading.variable)}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        
+        <Navbar></Navbar>
+        <Banner></Banner>
+        {children}
+        
+        </body>
     </html>
   );
 }
